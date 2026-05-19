@@ -2,9 +2,10 @@
 <html>
 
 <head>
-    
-    <title>Bewerbungsseite</title>
-     <!-- 1. Zeichensatz (Pflichtangabe, sollte immer an erster Stelle stehen) -->
+
+   
+<body>
+             <!-- 1. Zeichensatz (Pflichtangabe, sollte immer an erster Stelle stehen) -->
     <meta charset="UTF-8">
 
     <!-- 2. Viewport (Sorgt für die korrekte Darstellung auf Mobilgeräten) -->
@@ -19,36 +20,34 @@
     <!-- 5. Autor (Optional: Gibt den Ersteller der Seite an) -->
     <meta name="author" content="Louis Campanale">
     <link rel="stylesheet" href="../static/css/style.css">
-</head>
-   
-<body>
-    <header>
+    <header class = "header">
         <h1>Louis Campanale</h1>
     </header>
 
-        <nav>
+        <nav class = "nav">
             <a href="index.html">Startseite</a>
             <a href ="aboutme.html"> About me</a>
-            <a href ="projects.html"> Porjekte</a>
-            <a href="contact.html">Kontakt</a>
-            
+            <a href ="projects.html"> Projekte</a>
+            <a href="contact.html">Kontakt</a>   
         </nav>
 
     <main>
         <section class ="hero">
 
-            <h2 style ="text-align:center">Hi, ich bin Louis</h2>
-            <pre style ="text-align:center;font-size:15px"> Fachinformatiker für Anwendungsentwicklung mit Interesse an Python, Netzwerken und selbstgehosteten Systemen. </pre>
-            <button onclick ="location.href='aboutme.html'">Mehr Erfahren</button>
+            <h2>Hi, ich bin Louis</h2>
+            <pre class ="hero_pre"> Fachinformatiker für Anwendungsentwicklung mit Interesse an Python, Netzwerken und selbstgehosteten Systemen. 
+                Last uns gemeinsam spannende Projekte umsetzen und die Welt der Technologie erkunden!
+            </pre>
+            <button onclick="location.href='aboutme.html'">Mehr Erfahren</button>
         </section>
+        <section class = "sidebar">
+        <h2>Sidebar</h2>
+
     </main>
 
-        <section class = "me">
-            <h2>About me</h2>
-            <p></p>
-        </section>
 
     <footer>
+        <hr id="hr_footer">
         <p>Copyright © Louis Campanale 2026</p>
     </footer>
 

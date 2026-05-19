@@ -1,12 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
-body {
+
+body{
+  
+    background: url("../images/hintergrund.png")center/ cover no-repeat scroll;
+    font-family: 'Oswald', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Oder 100dvh für moderne Browser */
+    margin: 0;
+
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.header{ 
+    text-align: center;
     font-family: 'Oswald', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: beige;
+  
+}
+.nav{
+    text-align: center;
 }
 .hero{
-    color:purple;
+    text-align: center;
 
+}
+
+.hero_pre{
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.aboutme{
+    text-align: center;
+}
+.content{
+    flex: 1;
+}
+
+#hr_footer{
+    border: none;         /* Entfernt den Standardrahmen des Browsers */
+    height: 3px;          /* Legt die Dicke der Linie fest */
+    background-color: black;
 }
