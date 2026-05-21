@@ -1,53 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
-
-body{
-
-    background: url("../images/hintergrund.png")center/ cover no-repeat scroll;
+/* Global Styles. Geht sicher das alle elemente die tatsächliche größe einnehmen wie angegeben. Best case practice */
+*,*::before,
+*::after{
+    box-sizing: border-box;
+}
+*{
     font-family: 'Oswald', sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Oder 100dvh für moderne Browser */
-    margin: 0;
-
+    text-align: center;
+}
+body{
+      background-image: url('../images/Hintergrund.png');
 }
 
 footer{
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+
 }
 
-.header{ 
-    text-align: center;
-    font-family: 'Oswald', sans-serif;
-    margin: 0;
-    padding: 0;
+[href] {
+    color: red;
   
-}
-.nav{
-    text-align: center;
-}
-.hero{
-    text-align: center;
-
-}
-
-.hero_pre{
-    font-size: 1.2em;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.aboutme{
-    text-align: center;
-}
-.content{
-    flex: 1;
-}
-
-#hr_footer{
-    border: none;         /* Entfernt den Standardrahmen des Browsers */
-    height: 3px;          /* Legt die Dicke der Linie fest */
-    background-color: black;
 }
