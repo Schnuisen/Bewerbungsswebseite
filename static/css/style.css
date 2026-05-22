@@ -73,7 +73,7 @@ body {
 .btnAbout{
     color: #f5faff;
     background: #6a89a7;
-    border : none;
+    border : black;
 }
 /* Footer */
 footer {
