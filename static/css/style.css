@@ -1,86 +1,307 @@
+/* Importiert die Schriftart Oswald von Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
-/*FARBSCHEMA
-BACKGROUND : #BDDDFC
-HERO/CARD BACKGROUND #6A89A7
-ACCENT / HOVER #88BDF2
-NAVIGATION / FOOTER #384959
-HAUPTSCHRIFT #F5FAFF*/
 
+/* 
+:root spricht das oberste Element der Seite an.
+Hier legt man zentrale Variablen fest.
+Vorteil: Farben, Schatten und Abstände müssen später nur hier geändert werden.
+*/
+:root {
+    --bg: #BDDDFC;              /* Haupt-Hintergrundfarbe */
+    --surface: #6A89A7;         /* Farbe für Karten/Hero-Bereich */
+    --accent: #88BDF2;          /* Akzentfarbe für Hover/Button */
+    --nav: #384959;      /* Farbe für Navigation und Footer */
+    --footer: #384959;
+    --text: #F5FAFF;            /* helle Hauptschrift */
+    --dark-text: #24313d;       /* dunkle Schrift für helle Buttons */
 
-
-/* Global Styles. Geht sicher das alle elemente die tatsächliche größe einnehmen wie angegeben. Best case practice */
-*,*::before,
-*::after{
+    --radius: 20px;             /* einheitliche Rundung */
+    --shadow: 0 20px 50px rgba(0, 0, 0, 0.18); /* Schatten */
+    --transition: 0.25s ease;   /* Standard-Übergang */
+}
+/* 
+Sorgt dafür, dass padding und border zur Gesamtgröße eines Elements gehören.
+Ohne das werden Layouts oft ungenau.
+*/
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
-*{
-    font-family: 'Oswald', sans-serif;
-    text-align: center;
-}
+/* Grundlayout der gesamten Seite */
 body {
-    background-color: #BDDDFC;
-    margin: 0;
-    min-height: 100vh;
+    margin: 0;                  /* Entfernt den Standard-Abstand des Browsers */
+    min-height: 100vh;          /* Body ist mindestens so hoch wie das Browserfenster */
 
-    display: grid;
+    font-family: 'Oswald', sans-serif; /* Schriftart für die gesamte Seite */
+
+    display: grid;              /* Body wird zum Grid-Container */
     grid-template-rows: auto 1fr auto;
-}
+    /*
+        auto = Navigation so hoch wie nötig
+        1fr  = Main-Bereich nimmt den übrigen Platz
+        auto = Footer so hoch wie nötig
+    */
 
+    background:
+        radial-gradient(circle at top left, rgba(136, 189, 242, 0.45), transparent 35%),
+        linear-gradient(135deg, var(--bg), var(--surface));
+    /*
+        Zwei Hintergründe:
+        1. radial-gradient = weicher Lichtfleck oben links
+        2. linear-gradient = Farbverlauf über die ganze Seite
+    */
+
+    color: var(--text);         /* Standardschriftfarbe */
+}
 /* Navigation */
 .nav {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+    display: flex;              /* Links werden nebeneinander angeordnet */
+    justify-content: center;    /* Links werden horizontal zentriert */
+    gap: 2rem;                  /* Abstand zwischen den Links */
 
-    padding: 1.5rem;
-    background-color: #384959;
+    padding: 1.5rem;            /* Innenabstand der Navigation */
+
+    background-color: rgba(56, 73, 89, 0.9);
+    /*
+        rgba = Farbe mit Transparenz.
+        Die letzte Zahl 0.9 bedeutet 90% sichtbar.
+    */
+
+    backdrop-filter: blur(12px);
+    /*
+        Macht den Hintergrund hinter der Navigation weich/verschwommen.
+        Wirkt wie Glas.
+    */
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+    /* Schatten unter der Navigation */
 }
-.nav a{
-    color: #f5faff;
-    text-decoration: none;
-    font-weight: bold;
+/* Links innerhalb der Navigation */
+.nav a {
+    color: var(--text);         /* Linkfarbe */
+    text-decoration: none;      /* Entfernt Unterstreichung */
+    font-weight: bold;          /* Macht Text fett */
+
+    position: relative;
+    /*
+        Wird gebraucht, damit das ::after-Element
+        später relativ zum Link positioniert werden kann.
+    */
+
+    transition: color var(--transition);
+    /*
+        Farbwechsel passiert weich statt abrupt.
+    */
 }
+/* Künstliche Linie unter jedem Navigationslink */
+.nav a::after {
+    content: "";                /* Erzeugt ein leeres Pseudo-Element */
+    position: absolute;         /* Positioniert die Linie frei im Link */
+
+    left: 0;                    /* Start links */
+    bottom: -6px;               /* 6px unter dem Linktext */
+
+    width: 0;                   /* Anfangs unsichtbar */
+    height: 2px;                /* Dicke der Linie */
+
+    background-color: var(--accent);
+
+    transition: width var(--transition);
+    /*
+        Wenn sich width verändert, wird es animiert.
+    */
+}
+/* Hover-Zustand für Navigationslinks */
 .nav a:hover {
-    color: #88bdf2;
+    color: var(--accent);       /* Link wird beim Hover blau */
+}
+/* Linie fährt beim Hover aus */
+.nav a:hover::after {
+    width: 100%;                /* Linie wird so breit wie der Link */
 }
 /* Hauptbereich */
 .main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex;              /* Ermöglicht einfaches Zentrieren */
+    justify-content: center;    /* Horizontal zentrieren */
+    align-items: center;        /* Vertikal zentrieren */
 
-    padding: 2rem;
+    padding: 2rem;              /* Abstand zum Rand */
 }
 /* Hero-Bereich */
 .hero {
-    max-width: 900px;
-    text-align: center;
+    max-width: 900px;           /* Hero wird nie breiter als 900px */
+    padding: 4rem 3rem;         /* Innenabstand oben/unten und links/rechts */
 
-    background-color: #6a89a7;
-    border-radius: 20px;
+    text-align: center;         /* Text im Hero zentrieren */
 
-    color: #f5faff;
+    background-color: rgba(106, 137, 167, 0.75);
+    /*
+        Transparente Kartenfläche.
+        Farbe basiert auf deiner Card-Farbe.
+    */
+
+    border-radius: var(--radius); /* Abgerundete Ecken */
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    /*
+        Subtiler heller Rand.
+        Gibt der Karte mehr Tiefe.
+    */
+
+    box-shadow: var(--shadow);  /* Schatten aus der :root-Variable */
+
+    backdrop-filter: blur(14px);
+    /* Glasartiger Effekt */
+
+    animation: fadeUp 0.8s ease both;
+    /*
+        Beim Laden wird der Hero weich eingeblendet.
+        both sorgt dafür, dass der Endzustand erhalten bleibt.
+    */
 }
-.hero p {
-    font-size: 1.2rem;
-    line-height: 1.6;
+.aboutme{
+        max-width: 900px;           /* Hero wird nie breiter als 900px */
+    padding: 4rem 3rem;         /* Innenabstand oben/unten und links/rechts */
+
+    text-align: center;         /* Text im Hero zentrieren */
+
+    background-color: rgba(106, 137, 167, 0.75);
+    /*
+        Transparente Kartenfläche.
+        Farbe basiert auf deiner Card-Farbe.
+    */
+
+    border-radius: var(--radius); /* Abgerundete Ecken */
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    /*
+        Subtiler heller Rand.
+        Gibt der Karte mehr Tiefe.
+    */
+
+    box-shadow: var(--shadow);  /* Schatten aus der :root-Variable */
+
+    backdrop-filter: blur(14px);
+    /* Glasartiger Effekt */
+
+    animation: fadeUp 0.8s ease both;
+    /*
+        Beim Laden wird der Hero weich eingeblendet.
+        both sorgt dafür, dass der Endzustand erhalten bleibt.
+    */
 }
+/* Hauptüberschrift */
 .MainTitle {
     font-size: clamp(2rem, 5vw, 4rem);
-    margin-bottom: 1rem;
+    /*
+        clamp(minimum, flexibel, maximum)
+        Minimum: 2rem
+        Ideal: 5% der Viewport-Breite
+        Maximum: 4rem
+        Ergebnis: responsive Schriftgröße
+    */
+    margin-top: 0;              /* Kein Abstand über der Überschrift */
+    margin-bottom: 1rem;        /* Abstand unter der Überschrift */
 }
-.btnAbout{
-    color: #f5faff;
-    background: #6a89a7;
-    border : black;
+/* Text im Hero */
+.hero p {
+    font-size: 1.2rem;          /* Etwas größere Schrift */
+    line-height: 1.7;           /* Zeilenhöhe für bessere Lesbarkeit */
+    margin-bottom: 2rem;        /* Abstand zum Button */
+}
+/* Button-Grundklasse */
+.btn {
+    display: inline-block;
+    /*
+        Damit sich ein Link wie ein Button verhält:
+        Breite/Höhe/Padding funktionieren sauber.
+    */
+
+    padding: 0.9rem 1.6rem;     /* Innenabstand */
+    border-radius: 999px;       /* Sehr runde Pillenform */
+
+    text-decoration: none;      /* Falls es ein a-Link ist */
+    font-weight: 700;           /* Kräftiger Text */
+
+    cursor: pointer;            /* Mauszeiger zeigt Klickbarkeit */
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        background-color var(--transition);
+    /*
+        Animiert Bewegung, Schatten und Farbwechsel.
+    */
+}
+/* Primärer Button */
+.btn-primary {
+    background-color: var(--accent); /* Akzentfarbe */
+    color: var(--dark-text);         /* dunkle Schrift für Kontrast */
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+/* Hover-Zustand des Buttons */
+.btn-primary:hover {
+    transform: translateY(-3px);
+    /*
+        Button bewegt sich leicht nach oben.
+        Er wirkt dadurch klickbarer.
+    */
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25);
+    /*
+        Schatten wird stärker.
+        Dadurch wirkt der Button näher am Nutzer.
+    */
+}
+/* Klick-Zustand */
+.btn-primary:active {
+    transform: scale(0.97);
+    /*
+        Button wird beim Klicken minimal kleiner.
+        Das simuliert ein Eindrücken.
+    */
+}
+/* Tastatur-Fokus */
+.btn:focus {
+    outline: 2px solid var(--text);
+    outline-offset: 4px;
+    /*
+        Wichtig für Tastatur-Navigation.
+        Zeigt, welches Element fokussiert ist.
+    */
 }
 /* Footer */
 footer {
-    color: #f5faff;
-    background-color: #384959;
-}
-footer hr {
-    border: none;
+    color: var(--text);
+    background-color: rgba(56, 73, 89, 0.9);
 
+
+    text-align: center;
+
+    box-shadow: 0 -8px 30px #0000001f;
+    /*
+        Schatten nach oben.
+        Trennt Footer visuell vom Inhalt.
+    */
+}
+/* Linie im Footer */
+footer hr {
+    border: none;               /* Entfernt Standardrahmen */
+    background-color: #ffffff2e;
+    /* Dezente helle Linie */
+}
+/* Ladeanimation für den Hero */
+@keyframes fadeUp {
+    from {
+        opacity: 0;             /* Start: unsichtbar */
+        transform: translateY(24px);
+        /* Start: 24px tiefer */
+    }
+    to {
+        opacity: 1;             /* Ende: sichtbar */
+        transform: translateY(0);
+        /* Ende: normale Position */
+    }
 }
