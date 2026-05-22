@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
+/*FARBSCHEMA
+BACKGROUND : #BDDDFC
+HERO/CARD BACKGROUND #6A89A7
+ACCENT / HOVER #88BDF2
+NAVIGATION / FOOTER #384959
+HAUPTSCHRIFT #F5FAFF*/
+
+
+
 /* Global Styles. Geht sicher das alle elemente die tatsächliche größe einnehmen wie angegeben. Best case practice */
 *,*::before,
 *::after{
@@ -9,21 +18,69 @@
     font-family: 'Oswald', sans-serif;
     text-align: center;
 }
-body{
-      background-image: url('../images/Hintergrund.png');
+body {
+    background-color: #BDDDFC;
+    margin: 0;
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
-footer{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    color: #fff;
+/* Navigation */
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
 
+    padding: 1.5rem;
+    background-color: #384959;
 }
+.nav a{
+    color: #f5faff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.nav a:hover {
+    color: #88bdf2;
+}
+/* Hauptbereich */
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-[href] {
-    color: red;
-  
+    padding: 2rem;
+}
+/* Hero-Bereich */
+.hero {
+    max-width: 900px;
+    text-align: center;
+
+    background-color: #6a89a7;
+    border-radius: 20px;
+
+    color: #f5faff;
+}
+.hero p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+.MainTitle {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 1rem;
+}
+.btnAbout{
+    color: #f5faff;
+    background: #6a89a7;
+    border : none;
+}
+/* Footer */
+footer {
+    color: #f5faff;
+    background-color: #384959;
+}
+footer hr {
+    border: none;
+
 }
