@@ -33,9 +33,7 @@ Ohne das werden Layouts oft ungenau.
 body {
     margin: 0;                  /* Entfernt den Standard-Abstand des Browsers */
     min-height: 100vh;          /* Body ist mindestens so hoch wie das Browserfenster */
-
     font-family: 'Oswald', sans-serif; /* Schriftart für die gesamte Seite */
-
     display: grid;              /* Body wird zum Grid-Container */
     grid-template-rows: auto 1fr auto;
     /*
@@ -43,7 +41,6 @@ body {
         1fr  = Main-Bereich nimmt den übrigen Platz
         auto = Footer so hoch wie nötig
     */
-
     background:
         radial-gradient(circle at top left, rgba(136, 189, 242, 0.45), transparent 35%),
         linear-gradient(135deg, var(--bg), var(--surface));
@@ -52,7 +49,6 @@ body {
         1. radial-gradient = weicher Lichtfleck oben links
         2. linear-gradient = Farbverlauf über die ganze Seite
     */
-
     color: var(--text);         /* Standardschriftfarbe */
 }
 /* Navigation */
@@ -60,21 +56,17 @@ body {
     display: flex;              /* Links werden nebeneinander angeordnet */
     justify-content: center;    /* Links werden horizontal zentriert */
     gap: 2rem;                  /* Abstand zwischen den Links */
-
     padding: 1.5rem;            /* Innenabstand der Navigation */
-
     background-color: rgba(56, 73, 89, 0.9);
     /*
         rgba = Farbe mit Transparenz.
         Die letzte Zahl 0.9 bedeutet 90% sichtbar.
     */
-
     backdrop-filter: blur(12px);
     /*
         Macht den Hintergrund hinter der Navigation weich/verschwommen.
         Wirkt wie Glas.
     */
-
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
     /* Schatten unter der Navigation */
 }
@@ -83,13 +75,11 @@ body {
     color: var(--text);         /* Linkfarbe */
     text-decoration: none;      /* Entfernt Unterstreichung */
     font-weight: bold;          /* Macht Text fett */
-
     position: relative;
     /*
         Wird gebraucht, damit das ::after-Element
         später relativ zum Link positioniert werden kann.
     */
-
     transition: color var(--transition);
     /*
         Farbwechsel passiert weich statt abrupt.
@@ -99,15 +89,11 @@ body {
 .nav a::after {
     content: "";                /* Erzeugt ein leeres Pseudo-Element */
     position: absolute;         /* Positioniert die Linie frei im Link */
-
     left: 0;                    /* Start links */
     bottom: -6px;               /* 6px unter dem Linktext */
-
     width: 0;                   /* Anfangs unsichtbar */
     height: 2px;                /* Dicke der Linie */
-
     background-color: var(--accent);
-
     transition: width var(--transition);
     /*
         Wenn sich width verändert, wird es animiert.
@@ -126,66 +112,33 @@ body {
     display: flex;              /* Ermöglicht einfaches Zentrieren */
     justify-content: center;    /* Horizontal zentrieren */
     align-items: center;        /* Vertikal zentrieren */
-
     padding: 2rem;              /* Abstand zum Rand */
+}
+.main_about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
 }
 /* Hero-Bereich */
 .hero {
     max-width: 900px;           /* Hero wird nie breiter als 900px */
     padding: 4rem 3rem;         /* Innenabstand oben/unten und links/rechts */
-
     text-align: center;         /* Text im Hero zentrieren */
-
     background-color: rgba(106, 137, 167, 0.75);
     /*
         Transparente Kartenfläche.
-        Farbe basiert auf deiner Card-Farbe.
     */
-
     border-radius: var(--radius); /* Abgerundete Ecken */
-
     border: 1px solid rgba(255, 255, 255, 0.25);
     /*
         Subtiler heller Rand.
         Gibt der Karte mehr Tiefe.
     */
-
     box-shadow: var(--shadow);  /* Schatten aus der :root-Variable */
-
     backdrop-filter: blur(14px);
     /* Glasartiger Effekt */
-
-    animation: fadeUp 0.8s ease both;
-    /*
-        Beim Laden wird der Hero weich eingeblendet.
-        both sorgt dafür, dass der Endzustand erhalten bleibt.
-    */
-}
-.aboutme{
-        max-width: 900px;           /* Hero wird nie breiter als 900px */
-    padding: 4rem 3rem;         /* Innenabstand oben/unten und links/rechts */
-
-    text-align: center;         /* Text im Hero zentrieren */
-
-    background-color: rgba(106, 137, 167, 0.75);
-    /*
-        Transparente Kartenfläche.
-        Farbe basiert auf deiner Card-Farbe.
-    */
-
-    border-radius: var(--radius); /* Abgerundete Ecken */
-
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    /*
-        Subtiler heller Rand.
-        Gibt der Karte mehr Tiefe.
-    */
-
-    box-shadow: var(--shadow);  /* Schatten aus der :root-Variable */
-
-    backdrop-filter: blur(14px);
-    /* Glasartiger Effekt */
-
     animation: fadeUp 0.8s ease both;
     /*
         Beim Laden wird der Hero weich eingeblendet.
@@ -304,4 +257,19 @@ footer hr {
         transform: translateY(0);
         /* Ende: normale Position */
     }
+}
+.img1
+ {
+    margin: 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding :  2rem;
+}
+.img1 img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25);
 }
