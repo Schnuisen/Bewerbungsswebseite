@@ -11,14 +11,14 @@ Vorteil: Farben, Schatten und Abstände müssen später nur hier geändert werde
     --bg: #BDDDFC;              /* Haupt-Hintergrundfarbe */
     --surface: #6A89A7;         /* Farbe für Karten/Hero-Bereich */
     --accent: #88BDF2;          /* Akzentfarbe für Hover/Button */
-    --nav: #384959;      /* Farbe für Navigation und Footer */
-    --footer: #384959;
+    --nav: #384959;             /* Farbe für Navigation */
+    --footer: #384959;          /* Farbe für Footer */
     --text: #F5FAFF;            /* helle Hauptschrift */
     --dark-text: #24313d;       /* dunkle Schrift für helle Buttons */
 
-    --radius: 20px;             /* einheitliche Rundung */
-    --shadow: 0 20px 50px rgba(0, 0, 0, 0.18); /* Schatten */
-    --transition: 0.25s ease;   /* Standard-Übergang */
+    --radius: 25px;                /* einheitliche Rundung */
+    --shadow: 0 20px 50px rgba(0, 0, 0, 0.3); /* Schatten */
+    --transition: 0.25s ease;      /* Standard-Übergang */
 }
 /* 
 Sorgt dafür, dass padding und border zur Gesamtgröße eines Elements gehören.
@@ -42,7 +42,7 @@ body {
         auto = Footer so hoch wie nötig
     */
     background:
-        radial-gradient(circle at top left, rgba(136, 189, 242, 0.45), transparent 35%),
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.15), transparent),
         linear-gradient(135deg, var(--bg), var(--surface));
     /*
         Zwei Hintergründe:
@@ -53,10 +53,10 @@ body {
 }
 /* Navigation */
 .nav {
-    display: flex;              /* Links werden nebeneinander angeordnet */
-    justify-content: center;    /* Links werden horizontal zentriert */
-    gap: 2rem;                  /* Abstand zwischen den Links */
-    padding: 1.5rem;            /* Innenabstand der Navigation */
+    display: flex;                                      /* Links werden nebeneinander angeordnet */
+    justify-content: center;                            /* Links werden horizontal zentriert */
+    gap: 2rem;                                          /* Abstand zwischen den Links */
+    padding: 1.5rem;                                    /* Innenabstand der Navigation */
     background-color: rgba(56, 73, 89, 0.9);
     /*
         rgba = Farbe mit Transparenz.
@@ -120,9 +120,34 @@ body {
     justify-content: center;
     align-items: center;
     padding: 2rem;
+    gap: 2rem;
+     /* Abstand zwischen den Abschnitten */
 }
 /* Hero-Bereich */
 .hero {
+    max-width: 900px;           /* Hero wird nie breiter als 900px */
+    padding: 4rem 3rem;         /* Innenabstand oben/unten und links/rechts */
+    text-align: center;         /* Text im Hero zentrieren */
+    background-color: rgba(106, 137, 167, 0.75);
+    /*
+        Transparente Kartenfläche.
+    */
+    border-radius: var(--radius); /* Abgerundete Ecken */
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    /*
+        Subtiler heller Rand.
+        Gibt der Karte mehr Tiefe.
+    */
+    box-shadow: var(--shadow);  /* Schatten aus der :root-Variable */
+    backdrop-filter: blur(12px);
+    /* Glasartiger Effekt */
+    animation: fadeUp 0.8s ease both;
+    /*
+        Beim Laden wird der Hero weich eingeblendet.
+        both sorgt dafür, dass der Endzustand erhalten bleibt.
+    */
+}
+.about_content {
     max-width: 900px;           /* Hero wird nie breiter als 900px */
     padding: 4rem 3rem;         /* Innenabstand oben/unten und links/rechts */
     text-align: center;         /* Text im Hero zentrieren */
@@ -145,7 +170,30 @@ body {
         both sorgt dafür, dass der Endzustand erhalten bleibt.
     */
 }
-/* Hauptüberschrift */
+.nille {
+    display: inline-block;
+    max-width: 900px;           /* Hero wird nie breiter als 900px */
+    padding: 4rem 3rem;         /* Innenabstand oben/unten und links/rechts */
+    text-align: center;         /* Text im Hero zentrieren */
+    background-color: rgba(106, 137, 167, 0.75);
+    /*
+        Transparente Kartenfläche.
+    */
+    border-radius: var(--radius); /* Abgerundete Ecken */
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    /*
+        Subtiler heller Rand.
+        Gibt der Karte mehr Tiefe.
+    */
+    box-shadow: var(--shadow);  /* Schatten aus der :root-Variable */
+    backdrop-filter: blur(14px);
+    /* Glasartiger Effekt */
+    animation: fadeUp 0.8s ease both;
+    /*
+        Beim Laden wird der Hero weich eingeblendet.
+        both sorgt dafür, dass der Endzustand erhalten bleibt.
+    */
+}/* Hauptüberschrift */
 .MainTitle {
     font-size: clamp(2rem, 5vw, 4rem);
     /*
@@ -158,8 +206,18 @@ body {
     margin-top: 0;              /* Kein Abstand über der Überschrift */
     margin-bottom: 1rem;        /* Abstand unter der Überschrift */
 }
+.nille_text{
+    font-size: 1.2rem;          /* Etwas größere Schrift */
+    line-height: 1.7;           /* Zeilenhöhe für bessere Lesbarkeit */
+    margin-bottom: 2rem;  
+}
 /* Text im Hero */
 .hero p {
+    font-size: 1.2rem;          /* Etwas größere Schrift */
+    line-height: 1.7;           /* Zeilenhöhe für bessere Lesbarkeit */
+    margin-bottom: 2rem;        /* Abstand zum Button */
+}
+.about_content p {
     font-size: 1.2rem;          /* Etwas größere Schrift */
     line-height: 1.7;           /* Zeilenhöhe für bessere Lesbarkeit */
     margin-bottom: 2rem;        /* Abstand zum Button */
@@ -258,13 +316,25 @@ footer hr {
         /* Ende: normale Position */
     }
 }
+@keyframes fadeSide {
+    from {
+        opacity: 0;             /* Start: unsichtbar */
+        transform: translateX(-24px);
+        /* Start: 24px links */
+    }
+    to {
+        opacity: 1;             /* Ende: sichtbar */
+        transform: translateX(0);
+        /* Ende: normale Position */
+    }
+}
 .img1
  {
     margin: 0;
     display:flex;
     justify-content: center;
     align-items: center;
-    padding :  2rem;
+    padding :2rem;
 }
 .img1 img {
     width: 100%;
@@ -272,4 +342,24 @@ footer hr {
     height: auto;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.25);
+}
+.nille img{
+    margin: 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25);
+    padding :  2px;
+}
+.nille .nille_img {
+    margin: 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding :2rem;
 }
