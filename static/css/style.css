@@ -1,7 +1,31 @@
 /* Importiert die Schriftart Oswald von Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
-
+/* Ladeanimation für den Hero */
+@keyframes fadeUp {
+    from {
+        opacity: 0;             /* Start: unsichtbar */
+        transform: translateY(24px);
+        /* Start: 24px tiefer */
+    }
+    to {
+        opacity: 1;             /* Ende: sichtbar */
+        transform: translateY(0);
+        /* Ende: normale Position */
+    }
+}
+@keyframes fadeSide {
+    from {
+        opacity: 0;             /* Start: unsichtbar */
+        transform: translateX(-24px);
+        /* Start: 24px links */
+    }
+    to {
+        opacity: 1;             /* Ende: sichtbar */
+        transform: translateX(0);
+        /* Ende: normale Position */
+    }
+}
 /* 
 :root spricht das oberste Element der Seite an.
 Hier legt man zentrale Variablen fest.
@@ -148,7 +172,7 @@ body {
     */
 }
 .about_content {
-    max-width: 900px;           /* Hero wird nie breiter als 900px */
+     max-width: 900px;           /* Hero wird nie breiter als 900px */
     padding: 4rem 3rem;         /* Innenabstand oben/unten und links/rechts */
     text-align: center;         /* Text im Hero zentrieren */
     background-color: rgba(106, 137, 167, 0.75);
@@ -235,16 +259,14 @@ body {
 
     text-decoration: none;      /* Falls es ein a-Link ist */
     font-weight: 700;           /* Kräftiger Text */
-
     cursor: pointer;            /* Mauszeiger zeigt Klickbarkeit */
-
     transition:
         transform var(--transition),
         box-shadow var(--transition),
         background-color var(--transition);
-    /*
-        Animiert Bewegung, Schatten und Farbwechsel.
-    */
+        /*
+            Animiert Bewegung, Schatten und Farbwechsel.
+        */
 }
 /* Primärer Button */
 .btn-primary {
@@ -303,31 +325,8 @@ footer hr {
     background-color: #ffffff2e;
     /* Dezente helle Linie */
 }
-/* Ladeanimation für den Hero */
-@keyframes fadeUp {
-    from {
-        opacity: 0;             /* Start: unsichtbar */
-        transform: translateY(24px);
-        /* Start: 24px tiefer */
-    }
-    to {
-        opacity: 1;             /* Ende: sichtbar */
-        transform: translateY(0);
-        /* Ende: normale Position */
-    }
-}
-@keyframes fadeSide {
-    from {
-        opacity: 0;             /* Start: unsichtbar */
-        transform: translateX(-24px);
-        /* Start: 24px links */
-    }
-    to {
-        opacity: 1;             /* Ende: sichtbar */
-        transform: translateX(0);
-        /* Ende: normale Position */
-    }
-}
+
+
 .img1
  {
     margin: 0;
@@ -342,6 +341,13 @@ footer hr {
     height: auto;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.25);
+
+    transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    filter var(--transition);
+    
+    cursor: pointer;
 }
 .nille img{
     margin: 0;
@@ -355,6 +361,13 @@ footer hr {
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.25);
     padding :  2px;
+
+    transition:
+    transform 0.5s ease,
+    box-shadow var(--transition),
+    filter var(--transition);
+
+    cursor: pointer;
 }
 .nille .nille_img {
     margin: 0;
@@ -362,4 +375,15 @@ footer hr {
     justify-content: center;
     align-items: center;
     padding :2rem;
+    gap : 1rem;
+}
+.img1 img:hover {
+    transform: scale(1.08) translateY(-60px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    filter: brightness(1.05); /*Helligkeit vom Bild wir von 100% auf 105% gesetzt*/
+}
+.nille img:hover {
+    transform: scale(2) translateY(-85px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    filter: brightness(1.05); /*Helligkeit vom Bild wir von 100% auf 105% gesetzt*/
 }
