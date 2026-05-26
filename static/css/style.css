@@ -172,52 +172,53 @@ body {
     */
 }
 .about_content {
-     max-width: 900px;           /* Hero wird nie breiter als 900px */
-    padding: 4rem 3rem;         /* Innenabstand oben/unten und links/rechts */
-    text-align: center;         /* Text im Hero zentrieren */
+     max-width: 900px;           
+    padding: 4rem 3rem;
+    text-align: center; 
     background-color: rgba(106, 137, 167, 0.75);
-    /*
-        Transparente Kartenfläche.
-    */
-    border-radius: var(--radius); /* Abgerundete Ecken */
+
+    border-radius: var(--radius); 
     border: 1px solid rgba(255, 255, 255, 0.25);
-    /*
-        Subtiler heller Rand.
-        Gibt der Karte mehr Tiefe.
-    */
-    box-shadow: var(--shadow);  /* Schatten aus der :root-Variable */
+
+    box-shadow: var(--shadow); 
     backdrop-filter: blur(14px);
-    /* Glasartiger Effekt */
+
     animation: fadeUp 0.8s ease both;
-    /*
-        Beim Laden wird der Hero weich eingeblendet.
-        both sorgt dafür, dass der Endzustand erhalten bleibt.
-    */
+
 }
 .nille {
     display: inline-block;
-    max-width: 900px;           /* Hero wird nie breiter als 900px */
-    padding: 4rem 3rem;         /* Innenabstand oben/unten und links/rechts */
-    text-align: center;         /* Text im Hero zentrieren */
+    max-width: 900px;          
+    padding: 4rem 3rem;        
+    text-align: center;
     background-color: rgba(106, 137, 167, 0.75);
-    /*
-        Transparente Kartenfläche.
-    */
+
     border-radius: var(--radius); /* Abgerundete Ecken */
     border: 1px solid rgba(255, 255, 255, 0.25);
-    /*
-        Subtiler heller Rand.
-        Gibt der Karte mehr Tiefe.
-    */
-    box-shadow: var(--shadow);  /* Schatten aus der :root-Variable */
+
+    box-shadow: var(--shadow);  
     backdrop-filter: blur(14px);
-    /* Glasartiger Effekt */
+
     animation: fadeUp 0.8s ease both;
-    /*
-        Beim Laden wird der Hero weich eingeblendet.
-        both sorgt dafür, dass der Endzustand erhalten bleibt.
-    */
-}/* Hauptüberschrift */
+}
+
+.fähigkeiten{
+    max-width: 900px;      
+    padding: 4rem 3rem;   
+    text-align: left;  
+    background-color: rgba(106, 137, 167, 0.75);
+
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    box-shadow: var(--shadow); 
+    backdrop-filter: blur(12px);
+
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;  
+}
+
 .MainTitle {
     font-size: clamp(2rem, 5vw, 4rem);
     /*
@@ -231,20 +232,20 @@ body {
     margin-bottom: 1rem;        /* Abstand unter der Überschrift */
 }
 .nille_text{
-    font-size: 1.2rem;          /* Etwas größere Schrift */
-    line-height: 1.7;           /* Zeilenhöhe für bessere Lesbarkeit */
+    font-size: 1.2rem;          
+    line-height: 1.7;           
     margin-bottom: 2rem;  
 }
 /* Text im Hero */
 .hero p {
-    font-size: 1.2rem;          /* Etwas größere Schrift */
-    line-height: 1.7;           /* Zeilenhöhe für bessere Lesbarkeit */
-    margin-bottom: 2rem;        /* Abstand zum Button */
+    font-size: 1.2rem;         
+    line-height: 1.7;          
+    margin-bottom: 2rem;       
 }
 .about_content p {
-    font-size: 1.2rem;          /* Etwas größere Schrift */
-    line-height: 1.7;           /* Zeilenhöhe für bessere Lesbarkeit */
-    margin-bottom: 2rem;        /* Abstand zum Button */
+    font-size: 1.2rem;         
+    line-height: 1.7;         
+    margin-bottom: 2rem;        
 }
 /* Button-Grundklasse */
 .btn {
@@ -309,10 +310,7 @@ body {
 footer {
     color: var(--text);
     background-color: rgba(56, 73, 89, 0.9);
-
-
     text-align: center;
-
     box-shadow: 0 -8px 30px #0000001f;
     /*
         Schatten nach oben.
@@ -325,8 +323,6 @@ footer hr {
     background-color: #ffffff2e;
     /* Dezente helle Linie */
 }
-
-
 .img1
  {
     margin: 0;
