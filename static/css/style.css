@@ -277,8 +277,8 @@ body {
     */
 
     padding: 0.9rem 1.6rem;     /* Innenabstand */
-    border-radius: 999px;       /* Sehr runde Pillenform */
-
+    border-radius: 999px;    /* Sehr runde Pillenform */
+           /* Abstand zwischen mehreren Buttons */
     text-decoration: none;      /* Falls es ein a-Link ist */
     font-weight: 700;           /* Kräftiger Text */
     cursor: pointer;            /* Mauszeiger zeigt Klickbarkeit */
@@ -290,16 +290,28 @@ body {
             Animiert Bewegung, Schatten und Farbwechsel.
         */
 }
+.buttons_main {
+    display: flex;              /* Buttons nebeneinander */
+    justify-content: center;    /* Horizontal zentrieren */
+    gap: 0.5em;
+}
 /* Primärer Button */
 .btn-primary {
     background-color: var(--accent); /* Akzentfarbe */
     color: var(--dark-text);         /* dunkle Schrift für Kontrast */
 
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    gap: 2rem;
 }
 .btn-projects {
     background-color: var(--accent); /* Akzentfarbe */
     color: var(--dark-text);         /* dunkle Schrift für Kontrast */
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+.btn-contact {
+    background-color: var(--accent); 
+    color: var(--dark-text);   
 
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
 }
@@ -318,15 +330,13 @@ body {
 }
 .btn-projects:hover {
     transform: translateY(-3px);
-    /*
-        Button bewegt sich leicht nach oben.
-        Er wirkt dadurch klickbarer.
-    */
     box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25);
-    /*
-        Schatten wird stärker.
-        Dadurch wirkt der Button näher am Nutzer.
-    */
+
+}
+.btn-contact:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25);
+
 }
 /* Klick-Zustand */
 .btn-primary:active {
@@ -338,6 +348,9 @@ body {
 }
 /* Tastatur-Fokus */
 .btn-projects:active{
+    transform: scale(0.97);
+}
+.btn-contact:active{
     transform: scale(0.97);
 }
 /* Footer */
