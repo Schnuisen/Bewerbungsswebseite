@@ -147,6 +147,12 @@ body {
     gap: 2rem;
      /* Abstand zwischen den Abschnitten */
 }
+.project_main{
+    display: flex;              /* Ermöglicht einfaches Zentrieren */
+    justify-content: center;    /* Horizontal zentrieren */
+    align-items: center;        /* Vertikal zentrieren */
+    padding: 2rem;              /* Abstand zum Rand */
+}
 /* Hero-Bereich */
 .hero {
     max-width: 900px;           /* Hero wird nie breiter als 900px */
@@ -193,7 +199,7 @@ body {
     text-align: center;
     background-color: rgba(106, 137, 167, 0.75);
 
-    border-radius: var(--radius); /* Abgerundete Ecken */
+    border-radius: var(--radius);
     border: 1px solid rgba(255, 255, 255, 0.25);
 
     box-shadow: var(--shadow);  
@@ -218,7 +224,22 @@ body {
     line-height: 1.7;
     margin-bottom: 2rem;  
 }
+.projects_weiterleitung{
+    max-width: 900px;      
+    padding: 4rem 3rem;   
+    text-align: center;  
+    background-color: rgba(106, 137, 167, 0.75);
 
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    box-shadow: var(--shadow); 
+    backdrop-filter: blur(12px);
+
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;  
+}
 .MainTitle {
     font-size: clamp(2rem, 5vw, 4rem);
     /*
@@ -276,8 +297,26 @@ body {
 
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
 }
+.btn-projects {
+    background-color: var(--accent); /* Akzentfarbe */
+    color: var(--dark-text);         /* dunkle Schrift für Kontrast */
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
 /* Hover-Zustand des Buttons */
 .btn-primary:hover {
+    transform: translateY(-3px);
+    /*
+        Button bewegt sich leicht nach oben.
+        Er wirkt dadurch klickbarer.
+    */
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25);
+    /*
+        Schatten wird stärker.
+        Dadurch wirkt der Button näher am Nutzer.
+    */
+}
+.btn-projects:hover {
     transform: translateY(-3px);
     /*
         Button bewegt sich leicht nach oben.
@@ -298,13 +337,8 @@ body {
     */
 }
 /* Tastatur-Fokus */
-.btn:focus {
-    outline: 2px solid var(--text);
-    outline-offset: 4px;
-    /*
-        Wichtig für Tastatur-Navigation.
-        Zeigt, welches Element fokussiert ist.
-    */
+.btn-projects:active{
+    transform: scale(0.97);
 }
 /* Footer */
 footer {
