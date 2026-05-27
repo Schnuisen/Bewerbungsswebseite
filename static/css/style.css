@@ -11,12 +11,12 @@
    02 | Animationen / Keyframes
    ========================================================= */
 
-/* Ladeanimation für den Hero */
+/* ====> Ladeanimationen <==== */
 @keyframes fadeUp {
     from {
         opacity: 0;             /* Start: unsichtbar */
-        transform: translateY(24px);
-        /* Start: 24px tiefer */
+        transform: translateY(50px);
+        /* Start: 50px tiefer */
     }
     to {
         opacity: 1;             /* Ende: sichtbar */
@@ -36,7 +36,7 @@
         /* Ende: normale Position */
     }
 }
-
+/*====> Ladeanimationen <=====*/
 
 /* =========================================================
    03 | Globale Variablen
@@ -193,15 +193,15 @@ body {             /* Body nimmt die volle Breite ein */
     justify-content: center;    /* Horizontal zentrieren */
     align-items: center;        /* Vertikal zentrieren */
     padding: 2rem;              /* Abstand zum Rand */
+    gap: 2rem;
 }
-
-
 /* =========================================================
    08 | Inhaltsbereiche / Karten
    ========================================================= */
 
 /* Hero-Bereich */
 .hero {
+    width: 100%;
     max-width: 1000px;           /* Hero wird nie breiter als 900px */
     padding: 4rem 3rem;         /* Innenabstand oben/unten und links/rechts */
     text-align: center;         /* Text im Hero zentrieren */
@@ -224,15 +224,25 @@ body {             /* Body nimmt die volle Breite ein */
         both sorgt dafür, dass der Endzustand erhalten bleibt.
     */
 }
-.section_wrapper {
+.section_wrapper > *{
     width: 100%;
     max-width: 1000px;
 
+}
+.section_wrapper{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    animation: fadeUp 0.8s ease both;
+}
+.webentwicklung_wrapper{
+    width: 100%;
+    max-width: 1000px;
 
+    display: flex;
+    gap: 2rem;
+    align-items: stretch;
 }
 .card {
     width: 100%;
