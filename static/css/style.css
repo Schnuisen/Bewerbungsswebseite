@@ -1,5 +1,15 @@
+/* =========================================================
+   01 | Imports
+   ========================================================= */
+
 /* Importiert die Schriftart Oswald von Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+
+
+/* =========================================================
+   02 | Animationen / Keyframes
+   ========================================================= */
 
 /* Ladeanimation für den Hero */
 @keyframes fadeUp {
@@ -26,6 +36,12 @@
         /* Ende: normale Position */
     }
 }
+
+
+/* =========================================================
+   03 | Globale Variablen
+   ========================================================= */
+
 /* 
 :root spricht das oberste Element der Seite an.
 Hier legt man zentrale Variablen fest.
@@ -44,6 +60,12 @@ Vorteil: Farben, Schatten und Abstände müssen später nur hier geändert werde
     --shadow: 0 20px 50px rgba(0, 0, 0, 0.3); /* Schatten */
     --transition: 0.25s ease;      /* Standard-Übergang */
 }
+
+
+/* =========================================================
+   04 | Reset / Basisregeln
+   ========================================================= */
+
 /* 
 Sorgt dafür, dass padding und border zur Gesamtgröße eines Elements gehören.
 Ohne das werden Layouts oft ungenau.
@@ -53,8 +75,14 @@ Ohne das werden Layouts oft ungenau.
 *::after {
     box-sizing: border-box;
 }
+
+
+/* =========================================================
+   05 | Seiten-Grundlayout
+   ========================================================= */
+
 /* Grundlayout der gesamten Seite */
-body {
+body {             /* Body nimmt die volle Breite ein */
     margin: 0;                  /* Entfernt den Standard-Abstand des Browsers */
     min-height: 100vh;          /* Body ist mindestens so hoch wie das Browserfenster */
     font-family: 'Oswald', sans-serif; /* Schriftart für die gesamte Seite */
@@ -75,6 +103,12 @@ body {
     */
     color: var(--text);         /* Standardschriftfarbe */
 }
+
+
+/* =========================================================
+   06 | Navigation
+   ========================================================= */
+
 /* Navigation */
 .nav {
     display: flex;                                      /* Links werden nebeneinander angeordnet */
@@ -131,8 +165,14 @@ body {
 .nav a:hover::after {
     width: 100%;                /* Linie wird so breit wie der Link */
 }
+
+
+/* =========================================================
+   07 | Main-Layouts
+   ========================================================= */
+
 /* Hauptbereich */
-.main {
+.main_index {
     display: flex;              /* Ermöglicht einfaches Zentrieren */
     justify-content: center;    /* Horizontal zentrieren */
     align-items: center;        /* Vertikal zentrieren */
@@ -147,15 +187,22 @@ body {
     gap: 2rem;
      /* Abstand zwischen den Abschnitten */
 }
-.project_main{
-    display: flex;              /* Ermöglicht einfaches Zentrieren */
+.main_projects{
+    display: flex;
+    flex-direction:column;              /* Ermöglicht einfaches Zentrieren */
     justify-content: center;    /* Horizontal zentrieren */
     align-items: center;        /* Vertikal zentrieren */
     padding: 2rem;              /* Abstand zum Rand */
 }
+
+
+/* =========================================================
+   08 | Inhaltsbereiche / Karten
+   ========================================================= */
+
 /* Hero-Bereich */
 .hero {
-    max-width: 900px;           /* Hero wird nie breiter als 900px */
+    max-width: 1000px;           /* Hero wird nie breiter als 900px */
     padding: 4rem 3rem;         /* Innenabstand oben/unten und links/rechts */
     text-align: center;         /* Text im Hero zentrieren */
     background-color: rgba(106, 137, 167, 0.75);
@@ -177,69 +224,29 @@ body {
         both sorgt dafür, dass der Endzustand erhalten bleibt.
     */
 }
-.about_content {
-     max-width: 900px;           
-    padding: 4rem 3rem;
-    text-align: center; 
-    background-color: rgba(106, 137, 167, 0.75);
+.section_wrapper {
+    width: 100%;
+    max-width: 1000px;
 
-    border-radius: var(--radius); 
-    border: 1px solid rgba(255, 255, 255, 0.25);
-
-    box-shadow: var(--shadow); 
-    backdrop-filter: blur(14px);
-
-    animation: fadeUp 0.8s ease both;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 
 }
-.nille {
-    display: inline-block;
-    max-width: 900px;          
-    padding: 4rem 3rem;        
-    text-align: center;
+.card {
+    width: 100%;
+    padding: 2rem;
     background-color: rgba(106, 137, 167, 0.75);
-
     border-radius: var(--radius);
     border: 1px solid rgba(255, 255, 255, 0.25);
-
-    box-shadow: var(--shadow);  
-    backdrop-filter: blur(14px);
-
-    animation: fadeUp 0.8s ease both;
-}
-
-.fähigkeiten{
-    max-width: 900px;      
-    padding: 4rem 3rem;   
-    text-align: left;  
-    background-color: rgba(106, 137, 167, 0.75);
-
-    border-radius: var(--radius);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-
-    box-shadow: var(--shadow); 
+    box-shadow: var(--shadow);
     backdrop-filter: blur(12px);
-
-    font-size: 1.2rem;
-    line-height: 1.7;
-    margin-bottom: 2rem;  
 }
-.projects_weiterleitung{
-    max-width: 900px;      
-    padding: 4rem 3rem;   
-    text-align: center;  
-    background-color: rgba(106, 137, 167, 0.75);
+/* =========================================================
+   09 | Typografie
+   ========================================================= */
 
-    border-radius: var(--radius);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-
-    box-shadow: var(--shadow); 
-    backdrop-filter: blur(12px);
-
-    font-size: 1.2rem;
-    line-height: 1.7;
-    margin-bottom: 2rem;  
-}
 .MainTitle {
     font-size: clamp(2rem, 5vw, 4rem);
     /*
@@ -268,6 +275,17 @@ body {
     line-height: 1.7;         
     margin-bottom: 2rem;        
 }
+.fähigkeiten  {
+    font-size: 1.2rem;          
+    line-height: 1.7;           
+    margin-bottom: 2rem;       
+}
+
+
+/* =========================================================
+   10 | Buttons
+   ========================================================= */
+
 /* Button-Grundklasse */
 .btn {
     display: inline-block;
@@ -353,6 +371,12 @@ body {
 .btn-contact:active{
     transform: scale(0.97);
 }
+
+
+/* =========================================================
+   11 | Footer
+   ========================================================= */
+
 /* Footer */
 footer {
     color: var(--text);
@@ -370,6 +394,12 @@ footer hr {
     background-color: #ffffff2e;
     /* Dezente helle Linie */
 }
+
+
+/* =========================================================
+   12 | Bilder
+   ========================================================= */
+
 .img1
  {
     margin: 0;
@@ -429,4 +459,14 @@ footer hr {
     transform: scale(2) translateY(-85px);
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
     filter: brightness(1.05); /*Helligkeit vom Bild wir von 100% auf 105% gesetzt*/
+}
+
+
+/* =========================================================
+   13 | Listen / Spezialfälle
+   ========================================================= */
+
+#webentwicklung_ul ul {
+    padding-left: 1rem; 
+    text-align: left;     
 }
