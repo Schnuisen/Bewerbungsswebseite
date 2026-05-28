@@ -199,10 +199,13 @@ body {             /* Body nimmt die volle Breite ein */
 
 /* Hero-Bereich */
 .hero {
+    display:flex;
+    flex-direction:column;
     width: 100%;
     max-width: 1000px;           /* Hero wird nie breiter als 900px */
     padding: 4rem 3rem;         /* Innenabstand oben/unten und links/rechts */
     text-align: center;         /* Text im Hero zentrieren */
+    align-items: center;
     background-color: rgba(106, 137, 167, 0.75);
     /*
         Transparente Kartenfläche.
@@ -243,8 +246,19 @@ body {             /* Body nimmt die volle Breite ein */
     gap: 2rem;
     align-items: stretch;
 }
+
 .card {
     width: 100%;
+    padding: 2rem;
+    background-color: rgba(106, 137, 167, 0.75);
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(12px);
+}
+.hero_card{
+    width: 100%;
+    max-width: 550px;
     padding: 2rem;
     background-color: rgba(106, 137, 167, 0.75);
     border-radius: var(--radius);
@@ -404,7 +418,7 @@ body {             /* Body nimmt die volle Breite ein */
 footer {
     color: var(--text);
     background-color: rgba(56, 73, 89, 0.9);
-    text-align: center;
+    align-items: center;
     box-shadow: 0 -8px 30px #0000001f;
     /*
         Schatten nach oben.
@@ -417,6 +431,19 @@ footer hr {
     background-color: #ffffff2e;
     /* Dezente helle Linie */
 }
+.footer_content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    padding: 1rem 2rem;
+}
+.footer_links{
+    display:flex;
+    align-content: right;
+}
+
 /* =========================================================
    12 | Bilder
    ========================================================= */
@@ -468,7 +495,33 @@ img{
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
     filter: brightness(1.05); /*Helligkeit vom Bild wir von 100% auf 105% gesetzt*/
 }
+#intervocat img {
+    width: 100px;
+    height: 100;
 
+    background-color: rgba(0, 0, 0, 0.262); /* Akzentfarbe */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    gap: 2rem;
+}
+#intervocat img:hover{
+    transform: scale(1.08) translateY(-10px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    filter: brightness(1.05);
+}
+.footer_links img{
+    width: 50px;
+    height: 50px;
+
+    background-color: var(--surface); /* Akzentfarbe */
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    gap: 2rem;
+}
+.footer_links img:hover{
+    transform: scale(1.08) translateY(-10px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    filter: brightness(1.05);
+}
 /* =========================================================
    13 | Listen / Spezialfälle
    ========================================================= */
