@@ -165,8 +165,6 @@ body {             /* Body nimmt die volle Breite ein */
 .nav a:hover::after {
     width: 100%;                /* Linie wird so breit wie der Link */
 }
-
-
 /* =========================================================
    07 | Main-Layouts
    ========================================================= */
@@ -223,13 +221,13 @@ body {             /* Body nimmt die volle Breite ein */
         Beim Laden wird der Hero weich eingeblendet.
         both sorgt dafür, dass der Endzustand erhalten bleibt.
     */
-}
-.section_wrapper > *{
-    width: 100%;
-    max-width: 1000px;
+
 
 }
 .section_wrapper{
+    width: 100%;
+    max-width: 1000px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -237,10 +235,11 @@ body {             /* Body nimmt die volle Breite ein */
     animation: fadeUp 0.8s ease both;
 }
 .webentwicklung_wrapper{
-    width: 100%;
-    max-width: 1000px;
-
+    width:100%;
+    max-width :1000px;
+    
     display: flex;
+    flex-direction: row;
     gap: 2rem;
     align-items: stretch;
 }
@@ -343,6 +342,12 @@ body {             /* Body nimmt die volle Breite ein */
 
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
 }
+.btn-git_webentwicklung{
+    background-color: var(--accent); 
+    color: var(--dark-text);   
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
 /* Hover-Zustand des Buttons */
 .btn-primary:hover {
     transform: translateY(-3px);
@@ -366,6 +371,11 @@ body {             /* Body nimmt die volle Breite ein */
     box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25);
 
 }
+.btn-git_webentwicklung:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25);
+
+}
 /* Klick-Zustand */
 .btn-primary:active {
     transform: scale(0.97);
@@ -380,6 +390,9 @@ body {             /* Body nimmt die volle Breite ein */
 }
 .btn-contact:active{
     transform: scale(0.97);
+}
+.btn-git_webentwicklung:active{
+    transform: scale(0.97)
 }
 
 
@@ -404,8 +417,6 @@ footer hr {
     background-color: #ffffff2e;
     /* Dezente helle Linie */
 }
-
-
 /* =========================================================
    12 | Bilder
    ========================================================= */
@@ -418,21 +429,8 @@ footer hr {
     align-items: center;
     padding :2rem;
 }
-.img1 img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.25);
 
-    transition:
-    transform var(--transition),
-    box-shadow var(--transition),
-    filter var(--transition);
-    
-    cursor: pointer;
-}
-.nille img{
+img{
     margin: 0;
     display:flex;
     justify-content: center;
@@ -465,12 +463,11 @@ footer hr {
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
     filter: brightness(1.05); /*Helligkeit vom Bild wir von 100% auf 105% gesetzt*/
 }
-.nille img:hover {
+.nille img:hover, .webentwicklung_img img:hover{
     transform: scale(2) translateY(-85px);
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
     filter: brightness(1.05); /*Helligkeit vom Bild wir von 100% auf 105% gesetzt*/
 }
-
 
 /* =========================================================
    13 | Listen / Spezialfälle
