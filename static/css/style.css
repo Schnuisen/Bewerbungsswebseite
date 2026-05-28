@@ -282,29 +282,16 @@ body {             /* Body nimmt die volle Breite ein */
     margin-top: 0;              /* Kein Abstand über der Überschrift */
     margin-bottom: 1rem;        /* Abstand unter der Überschrift */
 }
-.nille_text{
+.hero{
     font-size: 1.2rem;          
     line-height: 1.7;           
     margin-bottom: 2rem;  
 }
-/* Text im Hero */
-.hero p {
-    font-size: 1.2rem;         
-    line-height: 1.7;          
-    margin-bottom: 2rem;       
-}
-.about_content p {
-    font-size: 1.2rem;         
-    line-height: 1.7;         
-    margin-bottom: 2rem;        
-}
-.fähigkeiten  {
+.section_wrapper{
     font-size: 1.2rem;          
     line-height: 1.7;           
-    margin-bottom: 2rem;       
+    margin-bottom: 2rem;  
 }
-
-
 /* =========================================================
    10 | Buttons
    ========================================================= */
@@ -442,6 +429,7 @@ footer hr {
 .footer_links{
     display:flex;
     align-content: right;
+    gap: 5px;
 }
 
 /* =========================================================
@@ -484,6 +472,11 @@ img{
     align-items: center;
     padding :2rem;
     gap : 1rem;
+}
+.webentwicklung_img img:hover{
+    transform: scale(1.08) translateY(-60px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    filter: brightness(1.05);
 }
 .img1 img:hover {
     transform: scale(1.08) translateY(-60px);
